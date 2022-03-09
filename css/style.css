@@ -132,7 +132,7 @@ body {
   margin: 50px auto;
   min-height: 280px;
   width: 100%;
-  background: url("/img/img1.png") no-repeat center/100%; }
+  background: url("/source/img/img1.png") no-repeat center/100%; }
   @media (max-width: 768px) {
     .hello {
       margin: 50px auto;
@@ -208,7 +208,7 @@ body {
   margin: 50px auto;
   min-height: 150px;
   width: 100%;
-  background: url("/img/about-bg-2.png") no-repeat center/100%; }
+  background: url("/source/img/about-bg-2.png") no-repeat center/100%; }
   @media (max-width: 768px) {
     .t-facts {
       margin: 50px auto;
@@ -341,7 +341,7 @@ body {
   margin: 50px auto;
   min-height: 180px;
   width: 100%;
-  background: url("/img/interests-bg.png") no-repeat center/100%;
+  background: url("/source/img/interests-bg.png") no-repeat center/100%;
   margin-top: 130px; }
   .t-interests h1 {
     padding-top: 43px;

@@ -1,39 +1,60 @@
 <div class="content">
-    <section class="t-facts row justify-content-center align-items-center">
-        <div class="container">
-            <h1 class="t-facts__title main-title">
-                5 фактов обо мне
-            </h1>
-        </div>
-    </section>
-    <section class="facts">
-        <div class="container">
-            <div class="row align-items-center justify-content-center flex-wrap-reverse">
-                <div class="facts__col facts__ev">
-                    <div class="fact__circle fact-2">
-                        <img alt="" src="img/sisters.png">
-                        <p class="fact__text">У меня есть старшая сестра</p>
-                    </div>
-                    <div class="fact__circle fact-4">
-                        <img alt="" src="/img/woman-artist.png">
-                        <p class="fact__text">Я занималась ресованием в течении 7 лет</p>
-                    </div>
+                <div class="container">
+                    <section class="t-interests">
+                        <h1 class="main-title">Мои интересы</h1>
+                    </section>
+                    <section class="interests-list">
+                        <div class="list">
+                            <script src="/js/interests.js"></script>
+                            <!-- <ul>
+                                <li><a href="#books">Мои любимые книги</a></li>
+                                <li><a href="#films">Мои любимые фильмы</a></li>
+                                <li><a href="#hobbies">Мои хобби</a></li>
+                            </ul> -->
+                        </div>
+                    </section>
                 </div>
-                <div class="facts__col facts__odd">
-                    <div class="fact__circle fact-1">
-                        <img alt="" src="/img/house.png">
-                        <p class="fact__text">Я родилась в Севастополе</p>
+                <section class="books" id="books">
+                    <div class="container">
+                        <div class="books__title int-title"><h2>Книги</h2></div>
+                        <div class="books__img int-img">
+                            <img src="/source/img/books.png" alt="">
+                        </div>
+                        <div class="books__text int-text">Мои любимые книги это "Вино из одуванчиков" и "Книжный вор"</div>
                     </div>
-                    <div class="fact__circle fact-3">
-                        <img alt="" src="/img/woman-technologist.png">
-                        <p class="fact__text">Мои мама и папа инженеры</p>
+                </section>
+                <section class="films" id="films">
+                    <div class="container ">
+                        <div class="films__title int-title"><h2>Фильмы</h2></div>
+                        <div class="films__img int-img">
+                            <img src="/source/img/film.png" alt="">
+                        </div>
+                        <div class="films__text int-text">Мои любимые фильмы это "Великий Гетсби" и "Интерстеллар"</div>
                     </div>
-                    <div class="fact__circle fact-5">
-                        <img alt="" src="/img/graduation-cap.png">
-                        <p class="fact__text">Я выпустилась из школы в 2019 году</p>
-                    </div>
-                </div>
+                </section>
+                <section class="hobbies" id="hobbies">
+                    <div class="container">
+                        <div class="hobbies__title int-title"><h2>Хобби</h2></div>
+                        <div class="hobbies__items row align-items-center flex-column flex-md-row">
+                            <div class="col-auto col-md-4 h-auto">
+                                <div class="hobbies__img int-img">
+                                    <img src="/source/img/volleyball.png" alt="">
+                                </div>
+                                <div class="hobbies__text int-text">Волейбол</div>
+                            </div>
+                            <div class="col-auto col-md-4 h-auto">
+                                <div class="hobbies__img int-img">
+                                    <img src="/source/img/drawing.png" alt="">
+                                </div>
+                                <div class="hobbies__text int-text">Рисование</div>
+                            </div>
+                            <div class="col-auto col-md-4 h-auto">
+                                <div class="hobbies__img int-img">
+                                    <img src="/source/img/spaghetti.png" alt="">
+                                </div>
+                                <div class="hobbies__text int-text">Готовка</div>
+                            </div>
+                        </div>
+                    </div> 
+                </section>
             </div>
-        </div>
-    </section>
-</div>

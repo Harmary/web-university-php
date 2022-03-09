@@ -9,4 +9,3 @@ Class Controller_Study extends Controller{
 
 }
 
-?>

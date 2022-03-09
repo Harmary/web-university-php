@@ -9,7 +9,7 @@
     <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script crossorigin="anonymous" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <script src="/js/history.js"></script>
     <script>
         setCookie(0);
@@ -22,7 +22,7 @@
         <main class="page">
             <nav class="navbar navbar-expand-lg navbar-light header-bg">
                 <a class="navbar-brand header__brand" href="#">
-                    <img alt="" class="d-inline-block align-top" height="30" src="/img/heart_logo.png" width="34">
+                    <img alt="" class="d-inline-block align-top" height="30" src="/source/img/heart_logo.png" width="34">
                 </a>
                 <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
                     <span class="navbar-toggler-icon"></span>
@@ -32,14 +32,14 @@
                         <ul class="navbar-nav justify-content-center">
                             <li class="nav-item active">
                                 <img alt="" class="nav-img" src="/img/cycle.svg">
-                                <a class="nav-link" href="main.haml">
+                                <a class="nav-link" href="/main">
                                     Hello
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <img alt="" class="nav-img" src="/img/cycle.svg">
-                                <a class="nav-link" href="/main">Обо мне</a>
+                                <a class="nav-link" href="/about">Обо мне</a>
                             </li>
                             <li class="nav-item">
                                 <img alt="" class="nav-img" src="/img/cycle.svg">
@@ -47,13 +47,13 @@
                                     <a class="nav-link" href="/interests" id="dropbtn">Интересы</a>
                                     <ul class="dropdown-content" id="myDropdown">
                                         <li>
-                                            <a href="/interests #books">Книги</a>
+                                            <a href="/interests#books">Книги</a>
                                         </li>
                                         <li>
-                                            <a href="/interests.html#films">Фильмы</a>
+                                            <a href="/interests#films">Фильмы</a>
                                         </li>
                                         <li>
-                                            <a href="/interests.html#hobbies">Хобби</a>
+                                            <a href="/interests#hobbies">Хобби</a>
                                         </li>
                                     </ul>
                                 </div>
