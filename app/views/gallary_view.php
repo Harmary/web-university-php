@@ -18,8 +18,6 @@
            $rowNum = 5;
            $itemNum = 3;
            $item = 0;
-           //echo json_encode($photos);
-           //echo json_encode($titles);
            for ($i=0; $i < $rowNum; $i++) { 
                echo '<div class="collage__row row flex-column flex-sm-row justify-content-center ">';
                for ($j=0; $j < $itemNum; $j++) { 
