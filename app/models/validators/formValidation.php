@@ -136,9 +136,9 @@ class FormValidation {
                 }
             }
             if ($flag == true) {
-                $this->messages[$pkey] = '<div style="color: red;">' . $error . '</div>';
+                $this->messages[$pkey] = '<div style="color: red; margin: 10px 0px">'.$error.'</div>';
             } else {
-                $this->messages[$pkey] = '<div style="color: green;"> Верно!</div>';
+                $this->messages[$pkey] = '<div style="color: green; margin: 10px  0px"> Верно! </div>';
             }
         }
     }

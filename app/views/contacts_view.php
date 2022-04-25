@@ -5,7 +5,7 @@
         </div>
     </div>
     <section class="contact">
-        <form class="form" name="form" id="form" method="post">
+        <form class="form needs-validation" name="form" id="form" method="post">
             <div class="form-group contact__name">
                 <h2>ФИО</h2>
                 <input class="form-control" name="name" id="fio" type="text" value="<?php echo $data->fields['name'] ?>" placeholder="Иванов Иван Иванович" >
@@ -15,11 +15,11 @@
                 <h2>Пол</h2>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" <?php if (isset($data->fields['gender']) && ($data->fields['gender'] == "male")) echo "checked"; ?> name="gender" id="gender-male" value="option1">
-                    <label class="form-check-label" for="gender-male">Мужской</label>
+                    <label class="form-check-label gender-lable" for="gender-male">Мужской</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" <?php if (isset($data->fields['gender']) && ($data->fields['gender'] == "male")) echo "checked"; ?> name="gender" id="gender-female" value="option1">
-                    <label class="form-check-label" for="gender-female">Женский</label>
+                    <label class="form-check-label gender-lable" for="gender-female">Женский</label>
                 </div>
                 <?php echo $data->validator->messages['gender'] ?>
             </div>
