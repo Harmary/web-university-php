@@ -49,7 +49,7 @@
             <div class="form-group contact__age">
                 <h2 for="form-age">Возраст</h2>
                 <select class="form-control" name="age" id="form-age">
-                    <option <?php if ($data->fields['age'] == "") echo "selected" ?> value="">-</option>
+                    <option <?php if ($data->fields['age'] == "") echo "selected" ?>>-</option>
                     <option <?php if ($data->fields['age'] == "0") echo "selected" ?>>16-18</option>
                     <option <?php if ($data->fields['age'] == "1") echo "selected" ?>>18-21</option>
                     <option <?php if ($data->fields['age'] == "2") echo "selected" ?>>21-25</option>
@@ -66,7 +66,7 @@
             </div>
             <div class="form-group contact__telephone">
                 <h2 for="form-telephone">Номер телефона</h2>
-                <input type="tel" class="form-control" name="telephone" value="<?php echo $data->fields['phone'] ?>" id="form-telephone" placeholder="+7(999)1111111">
+                <input type="tel" class="form-control" name="phone" value="<?php echo $data->fields['phone'] ?>" id="form-telephone" placeholder="+7(999)1111111">
                 <?php echo $data->validator->messages['phone'] ?>
             </div>
             <div class="error"></div>

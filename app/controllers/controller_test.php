@@ -13,7 +13,7 @@ Class Controller_Test extends Controller{
 		if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $this->model->validateForm($_POST);
         }
-		$this->view->generate('test_view.php', 'template_view.php');
+		$this->view->generate('test_view.php', 'template_view.php',$this->model);
 	}
 
 }

@@ -6,8 +6,6 @@
     </div>
 
     <section class="test">
-        <!-- <div class="container"> -->
-
         <form class="form test-form" name="form"  method="post">
             <div class="form-group test-form__name">
                 <label for="test-form__fio">ФИО</label>
@@ -17,7 +15,7 @@
             <div class="form-group test-form__group">
                 <label for="test-form__gr">Группа</label>
                 <select class="form-control" name="group" id="test-form__gr">
-                    <option>-</option>
+                    <option value="">-</option>
                     <optgroup <?php if ($data->fields['group']=="21") echo "selected" ?> label="1 курс">
                         <option value="21">ИС/б-21-1-о</option>
                         <option value="21">ИС/б-21-2-о</option>
@@ -56,7 +54,7 @@
                 <p class="test-form__question ">2) Связный граф, который становится несвязным при удалении
                     любого ребра, является</p>
                 <select class="form-control" name="qst2" id="test-form__q2ans">
-                    <option <?php if ($data->fields['qst2'] == "1answ") echo "selected" ?> value="1answ">-</option>
+                    <option <?php if ($data->fields['qst2'] == "") echo "selected" ?> value="">-</option>
                     <option <?php if ($data->fields['qst2'] == "2answ") echo "selected" ?> value="2answ">четным</option>
                     <option <?php if ($data->fields['qst2'] == "3answ") echo "selected" ?> value="3answ">циклическим</option>
                     <option <?php if ($data->fields['qst2'] == "4answ") echo "selected" ?> value="4answ">полным</option>
@@ -68,7 +66,7 @@
                 <p>
                     3) A и B – множества действительных чисел: А = [0, 7], B = [0, 2]. Множество B\A равно
                 </p>
-                <textarea class="test-form__textarea" name="qst3" id="test-form__ans"></textarea>
+                <textarea class="test-form__textarea" name="qst3" id="test-form__ans"><?php echo $data->fields['qst3']?></textarea>
                 <?php echo $data->validator->messages['qst3'] ?>
             </div>
             <input id="btn-submit" class="btn btn-primary" type="submit" value="Submit">
@@ -83,16 +81,13 @@
                         <div class="modal__body">
                             <p>Вы действительно хотите отправить форму?</p>
                             <div class="modal__buttons">
-
                                 <input class="btn yes-btn" type="submit" value="Да">
                                 <input class="btn no-btn" type="button" value="Нет">
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-        <!-- </div> -->
     </section>
 </div>

@@ -16,22 +16,14 @@ class FormValidation {
     }
 
     public function isInteger($data){
-        if(is_numeric($data)==false){
-            return "Не является числом";
-        }
-
+            return is_numeric($data);
     }
 
-    public function isLess($data,$value){
-        $isInteger = $this->isInteger($data);
-        if (empty($isInteger)) {
-            $int_value = intval($data);
-            if ($int_value < $value) {
-                return "Значение должно быть не меньше $value";
-            }
-        } else {
-            return $isInteger;
+    function isLess($data,$value){
+        if(strlen($data)<$value){
+            return false;
         }
+
     }
 
     public function isGreater($data,$value){
@@ -67,10 +59,24 @@ class FormValidation {
 
     function isWord($data)
     {
-        if (!preg_match('/([A-Za-zА-Яа-я]){3,}/', $data)) {
+        if (!preg_match('/([A-Za-zА-Яа-я]){3}/', $data)) {
             return "Введите корректное слово";
         }
     }
+
+    function isPhone($data)
+    {
+        $phone_length = 10;
+        if(substr($data,0,1)=='8' && $this->isInteger($data) && $this->isLess(substr($data,1),$phone_length)) {
+            return;
+        } elseif ( substr($data,0,2)=='+7' &&  $this->isInteger($data) &&  $this->isLess(substr($data,1),$phone_length)){
+           return;
+        } else {
+            return 'Введите корректный номер телефона!';
+        }
+       
+    }
+
 
     protected function validateRule($field_name, $rule_name, $value)
     {
@@ -115,27 +121,8 @@ class FormValidation {
         }
     }
 
-    function isPhone($data)
-    {
-        if (!preg_match('/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,11}$/', $data)) {
-            return "Введите корректный номер телефона!";
-        }
-    }
-
+   
     public function validate($post_array){
-        
-        foreach ($post_array as $pkey => $value) {
-            $rules = $this->predicates[$pkey];
-            $this->SetRule($pkey, $rules);
-        }
-
-        foreach ($this->rules as $field => $rules) {
-            foreach ($rules as $key => $rule_name) {
-                $value = $post_array[$field];
-                $this->validateRule($field, $rule_name, $value);
-            }
-        }
-        $this->showErrors();
 
     }
 

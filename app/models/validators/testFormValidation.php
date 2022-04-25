@@ -1,6 +1,6 @@
 <?php
 
-include 'C:/Users/mashu/web/web-university-php/app/models/validators/formValidation.php';
+include 'D:/web/web-university-php/app/models/validators/formValidation.php';
 
 class TestFormValidation extends FormValidation{
     
@@ -13,22 +13,26 @@ class TestFormValidation extends FormValidation{
     ];
 
     public $predicates = [  
-        "name"=>["isNotEmpty",""], 
+        "name"=>["isNotEmpty","isWord"], 
         "group"=>["isNotEmpty"],
-        "qst1"=>["isNotEmpty"],
+        "qst1"=>["isNotEmpty",],
         "qst2"=>["isNotEmpty"],
         "qst3"=>["isNotEmpty","isMinSize"],
     ];
 
     function validate($post_array)
     {
-        parent::validate($post_array);
+        foreach ($post_array as $pkey => $value) {
+            $rules = $this->predicates[$pkey];
+            $this->SetRule($pkey, $rules);
+        }
+
+        foreach ($this->rules as $field => $rules) {
+            foreach ($rules as $key => $rule_name) {
+                $value = $post_array[$field];
+                $this->validateRule($field, $rule_name, $value);
+            }
+        }
+        $this->showErrors();
     }
-
-    // function answer($field_name,$data)
-    // {
-    //     if($field_name[$field_name->length] == "1") {
-
-    //     }
-    // }
 } 
