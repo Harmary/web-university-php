@@ -1,6 +1,6 @@
 <?php
 
-include 'D:/web/web-university-php/app/models/validators/testFormValidation.php';
+include 'app/models/validators/testFormValidation.php';
 
 class TestModel extends Model{
     public $fields = [

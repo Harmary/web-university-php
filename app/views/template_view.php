@@ -78,6 +78,10 @@
                                 <img alt="" class="nav-img" src="/img/cycle.svg">
                                 <a class="nav-link" href="/history">История</a>
                             </li>
+                            <li class="nav-item">
+                                <img alt="" class="nav-img" src="/img/cycle.svg">
+                                <a class="nav-link" href="/guestbook">Гостевая книга</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

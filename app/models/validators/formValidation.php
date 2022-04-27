@@ -123,7 +123,18 @@ class FormValidation {
 
    
     public function validate($post_array){
+        foreach ($post_array as $pkey => $value) {
+            $rules = $this->predicates[$pkey];
+            $this->SetRule($pkey, $rules);
+        }
 
+        foreach ($this->rules as $field => $rules) {
+            foreach ($rules as $key => $rule_name) {
+                $value = $post_array[$field];
+                $this->validateRule($field, $rule_name, $value);
+            }
+        }
+        $this->showErrors();
     }
 
     public function showErrors() {
