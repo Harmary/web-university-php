@@ -847,18 +847,6 @@ body {
 
 }
 
-.comment {
-  background-color: #2f60aa;
-}
-
-.comment__item {
-  width: 1200px;
-  height: 400px;
-  padding: 15px;
-  border: solid 5px #007bff;
-  
-}
-
 .gender-lable {
   padding-top: 4px
 }

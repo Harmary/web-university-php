@@ -1,7 +1,7 @@
-
+<div>
     <div class="t-contact">
-        
-            <h1 class="main-title">Оставь свой отзыв </h1>
+
+        <h1 class="main-title">Оставь свой отзыв </h1>
 
     </div>
 
@@ -26,18 +26,24 @@
                 <div class="error"></div>
                 <input class="btn btn-primary" type="submit" value="Submit" id="submit">
                 <input class="btn btn-primary" type="reset" value="Reset">
+                <a href="/guestbookload" onclick="" style="margin-left: 20px; text-decoration:underline">Загрузить свой отзыв</a>
             </form>
         </section>
         <section class="comment">
+            <h3 class="text-center h3 mb-3">Отзывы</h3>
             <? foreach ($records = $data->getFileText() as $record) : ?>
-                <div class="comment__item">
-                    <p>Имя: <?= $record['name'] ?></p>
-                    <p>Email: <?= $record['email'] ?></p>
-                    <p>Сообщение: <?= $record['comment'] ?></p>
+                <div class="card" style="margin:20px 0;">
+                    <div class="comment__item card-body">
+                        <p class="card-text"><?= $record['date'] ?></p>
+                        <h5 class="card-title h5">Имя: <?= $record['name'] ?></h5>
+                        <h6 class="card-subtitle h6 mb-2 text-muted">Email: <?= $record['email'] ?></h6>
+                        <p class="card-text">Сообщение: <?= $record['comment'] ?></p>
+                    </div>
                 </div>
             <? endforeach ?>
         </section>
+        <div class="simple"></div>
     </div>
-    </div>
-    <!-- <script src="js/contacts.js"></script> -->
-    <script src="js/calendar.js"></script>
+</div>
+<!-- <script src="js/contacts.js"></script> -->
+<script src="js/calendar.js"></script>
