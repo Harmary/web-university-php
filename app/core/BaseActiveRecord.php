@@ -1,11 +1,13 @@
 <?php
 
+namespace app\core;
+
 use PDO;
 use PDOException;
 
-class baseActiveRecord
+class BaseActiveRecord
 {
-    public $pdo;
+    public PDO $pdo;
     public $tablename;
     public $dbfields = array();
 
@@ -37,7 +39,7 @@ class baseActiveRecord
 
     public function find($id)
     {
-        $sql = "SELECT * FROM " . $this->tablename . " WHERE id=$id";
+        $sql = "Select * FROM " . $this->tablename . " WHERE id=$id";
         $stmt = $this->pdo->query($sql);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$row) {
@@ -61,7 +63,7 @@ class baseActiveRecord
     }
 
     public function findAll($where = '') {
-        $sql = "SELECT * FROM " . $this->tablename . ' ' . $where;
+        $sql = "Select * FROM " . $this->tablename . ' ' . $where;
         $stmt = $this->pdo->query($sql);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -84,22 +86,26 @@ class baseActiveRecord
     function save() {
         [$values, $fields] = $this->getData();
 
-        if (isset($this->id)) {
-            $countFields = count($fields);
-            for ($i = 0; $i < $countFields; $i++) {
-                $fields_list[] = $fields[$i] . ' = ' . $values[$i];
-            }
-            $sql = "UPDATE " . $this->tablename . " SET " . join(', ', array_slice($fields_list, 1)) . " WHERE ID=" . $this->id;
-        } else {
-            $sql = "INSERT INTO " . $this->tablename . " (" . join(', ', array_slice($fields, 1)) . ") VALUES(" . join(', ', array_slice($values, 1)) . ")";
+        $countFields = count($fields);
+        for ($i = 0; $i < $countFields; $i++) {
+            $fields_list[] = '`'.$fields[$i] . '` = ' . $values[$i];
+            $insertFields[] = "`$fields[$i]`";
         }
+        if (isset($this->id)) {
+            $sql = "Update " . $this->tablename . " SET " . join(', ', array_slice($fields_list, 1)) . " WHERE ID=" . $this->id;
+        } else {
+            $sql = "Insert into " . $this->tablename . " (" . join(', ', array_slice($insertFields, 1)) . ") VALUES(" . join(', ', array_slice($values, 1)) . ")";
+        }
+        var_dump($sql);
+        $r = $this->pdo->query($sql);
+        var_dump($this->pdo->errorInfo());
 
-        return $this->pdo->query($sql);
+        return $r;
     }
 
     public function delete()
     {
-        $sql = "DELETE FROM " .$this->tablename . " WHERE ID=" . $this->id;
+        $sql = "Delete from " .$this->tablename . " WHERE ID=" . $this->id;
         $stmt = $this->pdo->query($sql);
         if ($stmt) {
             return $stmt->fetch(PDO::FETCH_ASSOC);

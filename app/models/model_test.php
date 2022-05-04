@@ -1,8 +1,12 @@
 <?php
 
 include 'app/models/validators/testFormValidation.php';
+include_once 'app/models/Test.php';
 
 class TestModel extends Model{
+
+    public $table;
+
     public $fields = [
         "name"=>"",
         "group"=>"",
@@ -14,6 +18,7 @@ class TestModel extends Model{
     function __construct()
     {
         $this->validator = new TestFormValidation();
+        $this->table = new Test();
     }
 
     function validateForm($post_array)
@@ -35,5 +40,16 @@ class TestModel extends Model{
             $this->fields["qst3"] = $post_array["qst3"];
         }
         $this->validator->validate($this->fields);
+    }
+    
+    function save(){
+        $this->table->name = $_POST["name"];
+        $this->table->group = $_POST["group"];
+        $this->table->ans1 = $_POST["qst1"];
+        $this->table->ans2 = $_POST["qst2"];
+        $this->table->ans3 = $_POST["qst3"];
+        $this->table->date = date('d.m.y h:i:s');
+
+        $this->table->save();
     }
 }

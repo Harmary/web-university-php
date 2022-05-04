@@ -1,6 +1,7 @@
 <?php
 
-Class Controller_Test extends Controller{
+
+Class Controller_Test extends Controller {
 
     function __construct()
     {
@@ -12,7 +13,12 @@ Class Controller_Test extends Controller{
 	{	
 		if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $this->model->validateForm($_POST);
+            var_dump($this->model->save());
         }
+        $vars = [];
+
+        $vars["test"] = $this->model->table->findAll(); 
+        
 		$this->view->generate('test_view.php', 'template_view.php',$this->model);
 	}
 

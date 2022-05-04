@@ -1015,14 +1015,15 @@ body {
 
 .modal__dialog {
   position: absolute;
-  top: 45%;
-  left: 30%;
-  width: 600px;
+  top: 13%;
+  left: 22%;
+  width: auto;
   height: auto;
 }
 
 .modal__content {
   position: relative;
+  padding: 30px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1032,9 +1033,10 @@ body {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #f3f3f3;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  max-width: 1200px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: .3rem;
   outline: 0;
@@ -1173,4 +1175,8 @@ body {
 .table__label {
   font-weight: bold;
   text-align: center;
+}
+
+.hide {
+  display: none;
 }
