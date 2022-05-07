@@ -17,7 +17,7 @@ class TestModel extends Model{
 
     function __construct()
     {
-        $this->validator = new TestFormValidation();
+        $this->validator = new TestFormValidation;
         $this->table = new Test();
     }
 

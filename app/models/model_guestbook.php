@@ -1,12 +1,41 @@
 <?
 
+include 'app/models/validators/formValidation.php';
+
 class ModelGuestbook extends Model
 {
 
     public $path = 'public/files/messages.inc.txt';
 
+    public $fields = [
+        "name" => "",
+        "email" => "",
+        "comment" => "",
+    ];
+
     function __construct()
     {
+        $this->validator = new FormValidation;
+        $this->validator->messages = [
+            "name" => "",
+            "email" => "",
+            "comment" => "",
+        ];
+    }
+
+    function validateForm($post_array)
+    {
+        unset($post_array["submit"]);
+        if (!empty($post_array["name"])) {
+            $this->fields["name"] = $post_array["name"];
+        }
+        if (!empty($post_array["email"])) {
+            $this->fields["email"] = $post_array["email"];
+        }
+        if (!empty($post_array["comment"])) {
+            $this->fields["comment"] = $post_array["comment"];
+        }
+        $this->validator->validate($this->fields);
     }
 
     public function saveComment()

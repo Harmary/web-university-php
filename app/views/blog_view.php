@@ -26,8 +26,8 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <a class="btn btn-primary m-3 col-3" id="btn-submit" role="button">Добавить запись</a>
-        <a class="btn btn-outline-primary m-3 col-3">Добавить CSV с записями</a>
+        <a class="btn btn-primary m-2 col-3" id="btn-submit" href="#" role="button">Добавить запись</a>
+        <a class="btn btn-outline-primary m-2 col-3" href="#" role="button">Добавить CSV с записями</a>
     </div>
 </div>
 <script src="/js/modalWindow.js"></script>

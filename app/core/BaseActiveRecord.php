@@ -96,9 +96,7 @@ class BaseActiveRecord
         } else {
             $sql = "Insert into " . $this->tablename . " (" . join(', ', array_slice($insertFields, 1)) . ") VALUES(" . join(', ', array_slice($values, 1)) . ")";
         }
-        var_dump($sql);
         $r = $this->pdo->query($sql);
-        var_dump($this->pdo->errorInfo());
 
         return $r;
     }

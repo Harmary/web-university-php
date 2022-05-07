@@ -20,4 +20,9 @@ class TestFormValidation extends FormValidation{
         "qst3"=>["isNotEmpty","isMinSize"],
     ];
 
+    function validate($post_array)
+    {
+        parent::validate($post_array);
+    }
+
 } 

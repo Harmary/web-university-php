@@ -13,7 +13,10 @@ Class Controller_Test extends Controller {
 	{	
 		if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $this->model->validateForm($_POST);
-            var_dump($this->model->save());
+            
+        }
+        if(!empty($_POST)){
+            $this->model->save();
         }
         $vars = [];
 
