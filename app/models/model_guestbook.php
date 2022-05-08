@@ -21,6 +21,11 @@ class ModelGuestbook extends Model
             "email" => "",
             "comment" => "",
         ];
+        $this->validator->predicates = [
+            "name" => ["isNotEmpty"],
+            "email" => ["isNotEmpty","isEmail"],
+            "comment" => ["isNotEmpty"],
+        ];
     }
 
     function validateForm($post_array)
