@@ -28,6 +28,26 @@ class BaseActiveRecord
             }
         }
     }
+    public function getRecords($start, $count, $subSQL = '') {
+        $sql = "Select * FROM " . $this->tablename . ' ' . $subSQL . " LIMIT " . $start . ', ' . $count;
+        $stmt = $this->pdo->query($sql);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!$rows) {
+            return null;
+        }
+        
+        $ar_objs = array();
+        foreach ($rows as $row) {
+            $obj = new static();
+            foreach ($row as $key => $value) {
+                $obj->$key = $value;
+            }
+            array_push($ar_objs, $obj);
+        }
+        
+        return $ar_objs;
+    }
 
     public function getFields()
     {
@@ -81,6 +101,12 @@ class BaseActiveRecord
         }
 
         return $ar_objs;
+    }
+
+    public function getCount() {
+        $count = $this->pdo->query("SELECT COUNT(*) FROM " . $this->tablename)->fetch();
+        $count = (int)$count[0];
+        return $count;
     }
 
     function save() {

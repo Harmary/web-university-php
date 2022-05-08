@@ -10,6 +10,11 @@ class BlogModel extends Model {
         "title"=>"",
     ];
 
+    public $page;
+    public $pages_count;
+    public $perpage;
+    public $start_pos;
+
     function __construct()
     {
         $this->validator = new FormValidation();
@@ -20,6 +25,7 @@ class BlogModel extends Model {
         $this->validator->messages = [
             "title"=>"",
         ];
+        $this->showPages();
     }
 
     function validateForm($post_array)
@@ -29,6 +35,20 @@ class BlogModel extends Model {
             $this->fields["title"] = $post_array["title"];
         }
         $this->validator->validate($this->fields);
+    }
+
+    function showPages(){
+        $this->perpage = 2; // Количество отображаемых данных из БД
+
+        if (empty(@$_GET['page']) || ($_GET['page'] <= 0)) {
+            $this->page = 1;
+        } else {
+            $this->page = (int) $_GET['page']; // Считывание текущей страницы
+        }
+        $count = $this->table->getCount();
+        $this->pages_count = ceil($count / $this->perpage);
+        if ($this->page > $this->pages_count) $this->page = $this->pages_count;
+        $this->start_pos = ($this->page - 1) * $this->perpage;
     }
 
     function saveFile(){
@@ -43,5 +63,19 @@ class BlogModel extends Model {
         $this->table->save();
     }
 
-    
+    function link_bar($page, $pages_count)
+    {
+        for ($j = 1; $j <= $pages_count; $j++) {
+            // Вывод ссылки
+            if ($j == $page) {
+                echo ' <a style="color: #808000;" ><b>' . $j . '</b></a> ';
+            } else {
+                echo ' <a style="color: #808000;" href=' . $_SERVER['php_self'] . '?page=' . $j . '>' . $j . '</a> ';
+            }
+            if ($j != $pages_count) echo ' ';
+        }
+        return true;
+    }
+
+
 }
