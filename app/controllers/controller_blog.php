@@ -2,8 +2,6 @@
 
 class Controller_Blog extends Controller {
 
-    
-
     function __construct()
     {
         $this->model = new BlogModel;
@@ -14,7 +12,7 @@ class Controller_Blog extends Controller {
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $this->model->validateForm($_POST);
-            
+            $this->model->saveFile();
         }
         $this->view->generate('blog_view.php','template_view.php',$this->model);
     }

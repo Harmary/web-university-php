@@ -6,7 +6,7 @@
                 <div>
                     <h2 class="h2 text-center">Что нового?</h2>
                 </div>
-                <form action="">
+                <form enctype="multipart/form-data" method="POST" >
                     <div class="form-group ">
                         <label for="title">Заголовок</label>
                         <input type="text" value="<?php echo $data->fields['title'] ?>" class="form-control" name="title" id="title">

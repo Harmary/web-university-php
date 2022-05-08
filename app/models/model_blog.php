@@ -31,5 +31,17 @@ class BlogModel extends Model {
         $this->validator->validate($this->fields);
     }
 
+    function saveFile(){
+        $this->table->title = $_POST["title"];
+        $uploaddir = 'source/img/blog/';
+        $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+        move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
+        $this->table->image = $uploadfile;
+        $this->table->text = $_POST["text"];
+        $this->table->date = date('d.m.y h:i:s');
+
+        $this->table->save();
+    }
+
     
 }
